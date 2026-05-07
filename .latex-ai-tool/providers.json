@@ -1,0 +1,62 @@
+{
+  "zai": {
+    "baseURL": "https://api.z.ai/api/coding/paas/v4",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "providerType": "OpenAI"
+  },
+  "openrouter": {
+    "baseURL": "https://openrouter.ai/api/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "providerType": "OpenAI"
+  },
+  "openai": {
+    "baseURL": "https://api.openai.com/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "providerType": "OpenAI"
+  },
+  "anthropic": {
+    "baseURL": "https://api.anthropic.com/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "providerType": "Anthropic"
+  },
+  "ollama": {
+    "baseURL": "http://127.0.0.1:11434/v1",
+    "apiKey": "ollama",
+    "_local": true,
+    "providerType": "OpenAI"
+  },
+  "llama": {
+    "baseURL": "http://127.0.0.1:8081/v1",
+    "apiKey": "llama",
+    "_local": true,
+    "providerType": "OpenAI"
+  },
+  "llama2": {
+    "baseURL": "http://127.0.0.1:8082/v1",
+    "apiKey": "llama2",
+    "_local": true,
+    "providerType": "OpenAI"
+  },
+  "mlx": {
+    "baseURL": "http://127.0.0.1:8080/v1",
+    "apiKey": "mlx",
+    "_local": true,
+    "providerType": "OpenAI"
+  },
+  "lmstudio": {
+    "baseURL": "http://127.0.0.1:1234/v1",
+    "apiKey": "lmstudio",
+    "_local": true,
+    "providerType": "OpenAI"
+  },
+  "minimax": {
+    "baseURL": "https://api.minimax.io/v1",
+    "apiKey": "sk-cp-NiFIqNPQroBIlgmmwR1Z4qPISBJCFnuVf51u188WFVMGtirwG6MdG23o6lycmamL073uDNHFnuEKeURtzXM7ZvLJwHX4hBi6somfDj-_NUw4ZQ7v_TY8Cjo",
+    "providerType": "OpenAI"
+  },
+  "nvidia": {
+    "baseURL": "https://integrate.api.nvidia.com/v1",
+    "apiKey": "YOUR_API_KEY_HERE",
+    "providerType": "OpenAI"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "latex-writer": {
+    "description": "Writes and edits LaTeX content",
+    "mode": "subagent",
+    "model": "",
+    "maxTokens": 4000,
+    "temperature": 0.3,
+    "tools": {
+      "view": true,
+      "write": true,
+      "edit": true,
+      "grep": true
+    },
+    "prompt": "prompts/latex-writer.md"
+  },
+  "bibtex-manager": {
+    "description": "Manages bibliography and citations",
+    "mode": "subagent",
+    "model": "",
+    "maxTokens": 4000,
+    "temperature": 0.2,
+    "tools": {
+      "view": true,
+      "write": true,
+      "edit": true,
+      "fetch": true
+    },
+    "prompt": "prompts/bibtex-manager.md"
+  },
+  "error-fixer": {
+    "description": "Fixes LaTeX compilation errors",
+    "mode": "subagent",
+    "model": "",
+    "maxTokens": 6000,
+    "temperature": 0.5,
+    "tools": {
+      "view": true,
+      "edit": true,
+      "compile": true,
+      "diagnostics": true
+    },
+    "prompt": "prompts/error-fixer.md"
+  },
+  "format-checker": {
+    "description": "Checks and fixes LaTeX formatting",
+    "mode": "subagent",
+    "model": "",
+    "maxTokens": 4000,
+    "temperature": 0.2,
+    "tools": {
+      "view": true,
+      "edit": true,
+      "bash": true
+    },
+    "prompt": "prompts/format-checker.md"
+  }
+}

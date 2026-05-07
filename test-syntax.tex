@@ -1,0 +1,663 @@
+\documentclass[11pt,A4,twoside]{article}
+\usepackage[hmargin=1.4in,vmargin=1.2in]{geometry} 
+\usepackage{afterpage}
+\usepackage{empheq}
+
+\usepackage{natbib}
+\newcommand\citeN{\citet*}
+
+\usepackage{dsfont}
+
+
+\usepackage[english]{babel}
+\usepackage{enumerate,hyperref}
+\usepackage{enumitem}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{booktabs} 
+\usepackage{graphicx}
+\usepackage{amsmath}
+\setcounter{MaxMatrixCols}{30}
+\usepackage{latexsym}
+\usepackage{amsthm}
+\usepackage{appendix}
+\usepackage[all]{xy}
+\usepackage{todonotes} 
+\usepackage{fancyhdr}
+\usepackage{comment}
+
+\usepackage[linesnumbered,vlined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{breqn}
+\usepackage{mathtools} 
+\mathtoolsset{showonlyrefs=true} 
+\usepackage{dsfont}
+\usepackage{xspace}
+
+\usepackage{placeins}
+\let\oldsection\section
+\renewcommand{\section}{\FloatBarrier\oldsection}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{\FloatBarrier\oldsubsection}
+\let\oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\FloatBarrier\oldsubsubsection}
+\usepackage{float}
+
+\usepackage{xr}
+\externaldocument[regest-]
+{Regressionestimates}
+
+\makeatletter
+\newcommand\timenow{\@tempcnta\time
+\@tempcntb\@tempcnta
+\divide\@tempcntb60
+\ifnum10>\@tempcntb0\fi\number\@tempcntb
+:\multiply\@tempcntb60
+\advance\@tempcnta-\@tempcntb
+\ifnum10>\@tempcnta0\fi\number\@tempcnta}
+\makeatother
+
+\numberwithin{equation}{section}
+
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cFab}{\mathcal{F}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cGB}{\mathcal{G}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cI}{\mathcal{I}}
+\newcommand{\cL}{\mathcal{L}}
+
+\newcommand{\cab}{c_{\mathcal{F}^*}}
+\newcommand{\Cab}{C_{\mathcal{F}^*}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cR}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\cX}{\mathcal{X}}
+
+\newcommand{\E}{\mathbb{E}}
+
+
+
+
+\newcommand{\setJ}{\mathcal{J}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}} 
+\newcommand{\un}{\ind}
+\newcommand\ind{\mathds{1}}
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand \dd{\rmd}
+\newcommand \dx{\dd x}
+\newcommand \dy{\dd y}
+\newcommand{\Id}{\mathrm{Id}}
+
+
+\newcommand{\draw}{V}
+\newcommand{\param}{\theta}
+
+\newcommand{\kernel}{\mathrm{Q}}
+\newcommand{\kernelW }{\mathrm{\Pi}}
+\newcommand{\kernelZ}{\mathrm{P}}
+
+\newcommand \PE{\mathbb{E}}
+\newcommand \ave[1]{\frac{1}{#1}\sum_{i=1}^{#1}}
+\newcommand \Esp[1]{\mathbb{E}\left[#1\right]}
+\newcommand \Espcon[2]{\mathbb{E}^{#1}\left[#2\right]}
+\newcommand \PP{\mathbb{P}}
+\newcommand \PPro[1]{\PP\left[#1\right]}
+\newcommand \PProcon[2]{\PP^{\,#1}\left[#2\right]}
+
+
+\newcommand \ES{ s }
+\newcommand \es{\mathrm{\em es}}
+
+\newcommand \EC{\mathrm{EC}}
+\newcommand \hatES{\widehat{\ES}}
+
+\newcommand \VCF{{\bf VC}_{\cal F}}
+\newcommand \VCH{{\bf VC}_{\hat {\cal H}}}
+
+
+\newcommand \Rm{R^{(m)}}
+\newcommand \Radcemp{\cR_{emp}}
+\newcommand \Radcave{\cR_{ave}}
+
+
+\newcommand \objfunvar{q}
+\newcommand \objfunexpsho{r}
+
+\newcommand\appvar{\widetilde{\objfunvar}}
+
+\newcommand  \empappvar{\eg{\widehat{\objfunvar}} }
+
+\newcommand \empappexpsho[1]{\eg{\widehat{\objfunexpsho}_{#1}}}
+
+\newcommand \empappexpshoB[1]{\eg{\widehat{\objfunexpsho}_{#1}^{{\;B}}}}\renewcommand \empappexpshoB[1]{\eg{\widehat{\objfunexpsho}_{#1}}}
+
+
+\newcommand \empappes[1]{\eg{\widehat{s}_{#1}}}
+
+
+\newcommand\VaR{q}
+
+\newcommand\VAR{\mathrm{VaR}}
+\newcommand \ESh{ \mathrm{ES}
+} 
+ 
+
+\newcommand\loss{L}
+
+\newcommand\lpvar{\Lambda}\renewcommand\lpvar{\Phi}\renewcommand\lpvar{p}\renewcommand\lpvar{\ell}\renewcommand\lpvar{\phi}
+
+\newcommand{\lmeavar}{\widetilde{\lpvar}}\renewcommand{\lmeavar}{\Phi^{a,b}}\renewcommand{\lmeavar}{\Phi}
+
+
+\newcommand\lpes{\den }\renewcommand\lpes{\Psi}\renewcommand\lpes{p}\renewcommand\lpes{\ell}
+
+
+\newcommand \lempestrunc{\eg{\widehat{\Psi}}}
+
+
+ 
+
+\newcommand\gqh{\gamma_{\empappvar}}
+\newcommand\gqf{\gamma_{f}}
+
+\renewcommand \proof{\noindent{\it\textbf{Proof}. $\, $}}
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{pro}[theorem]{Proposition} 
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{lem}[theorem]{Lemma}
+
+
+\newcommand{\bt}{\begin{theorem}}\newcommand{\et}{\end{theorem}}
+\newcommand{\bl}{\begin{lem}}\newcommand{\el}{\end{lem}}
+\newcommand{\bp}{\begin{pro}}\newcommand{\ep}{\end{pro}}
+\newcommand{\bcor}{\begin{cor}}\newcommand{\ecor}{\end{cor}}
+\newcommand{\bconj}{\begin{conj}}\newcommand{\econj}{\end{conj}}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definition}[section] 
+\newtheorem{hyp}[defi]{Assumption}
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}[section] 
+\newtheorem{ex}[rem]{Example}
+ \newtheorem{nota}[rem]{Notation}
+  
+\newcommand{\bd}{\begin{defi} 
+}\newcommand{\ed}{\end{defi} }
+\newcommand{\bn}{\begin{nota} 
+}\newcommand{\en}{\end{nota} }
+\newcommand{\brem }{\begin{rem} 
+}\newcommand{\erem }{\end{rem}}
+\newcommand{\bcom }{\begin{com} 
+}\newcommand{\ecom }{\end{com}}
+\newcommand{\brems }{\begin{rem} 
+}\newcommand{\erems }{\end{rem}}
+\newcommand{\bex}{\begin{ex} 
+}\newcommand{\eex}{\end{ex}}
+\newcommand{\bexo}{\begin{exo} 
+}\newcommand{\eexo}{\end{exo}}
+
+\newcommand\bh{\begin{hyp} 
+}\newcommand\eh{\end{hyp}}
+
+
+\renewcommand \sp{\,,\;}
+
+
+\newcommand\thej{j}
+
+\renewcommand \PE{{\rm E}}
+\renewcommand\ES{{\rm ES}}
+\renewcommand\VaR{{\rm VaR}}
+
+\newcommand\qq{\quad}
+\newcommand\qqq{\quad\quad\quad}
+
+\newcommand\z{q}
+\newcommand\fl{$\rightarrow$ }
+\newcommand\f{$\rightarrow$}
+\newcommand\eq{$\Leftrightarrow$}
+
+\newcommand\I{\mathds{1}}
+
+\newcommand{\indi}[1]{\I_{\{{#1}\}}}
+\newcommand\cNN{\mathcal{NN}}
+
+
+\renewcommand \PE{{\rm E}}
+\renewcommand \Esp[1]{\PE\left[#1\right]}
+\renewcommand \Espcon[2]{\PE^{#1}\left[#2\right]}
+\renewcommand \PP{{\rm P}}
+\renewcommand \PPro[1]{\PP\left[#1\right]}
+
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+
+\newcommand \theq{q}
+\newcommand \thes{s}
+
+\newcommand\ther{r}
+
+\renewcommand\r[1]{{\color{red}#1}}\renewcommand\r[1]{#1}
+\newcommand\eg[1]{{\color{black}#1}}
+
+\newcommand \finproof{\ensuremath{\square}}
+
+\newcommand\VaRa{\VaR}
+\newcommand\ESa{\ES}
+\newcommand\qalpha{q}
+
+\newcommand\salpha{s}
+ 
+\newcommand{\beqa}{\begin{eqnarray}}
+\newcommand{\eeqa}{\end{eqnarray}}
+\newcommand\bal{\begin{aligned}}
+\newcommand\eal{\end{aligned}}
+\newcommand{\beql}[1]{\begin{equation}\label{#1}\bal}
+\newcommand{\eeql}{\eal\end{equation}}
+\newcommand{\bel}{\begin{equation*}\bal}
+\newcommand{\eel}{\eal\end{equation*}}
+
+\newcommand \lay{l}
+\newcommand \then{n}
+\newcommand\thenu{n}
+ 
+
+
+\hypersetup{
+ colorlinks  = true, 
+ urlcolor   = black, 
+ linkcolor  = black, 
+ citecolor  = black 
+}
+\makeatletter
+\renewcommand\@makefnmark{\hbox{\@textsuperscript{\normalfont\color{blue}\@thefnmark}}}
+\renewcommand\@makefntext[1]{
+ \parindent 1em\noindent
+      \hb@xt@1.8em{
+        \hss\@textsuperscript{\normalfont\@thefnmark}}#1}
+\makeatother 
+
+\newcommand \Batches{\Pi}
+
+
+\renewcommand \otimes{\times}
+
+\newcommand\theu{u}
+\newcommand\thev{v}
+\newcommand \theP{\eg{\cal Z}}
+
+\newcommand\pin{\ell}
+
+\newcommand{\eqdef}{\mathrel{\mathop:}=}
+
+\newcommand\eqd{=}
+\newcommand{\defeq}{\mathrel{{=}{\mathop:}}}
+
+\newcommand \nn{1:n}
+
+
+\newcommand \Tbb{B\wedge}
+
+\newcommand\Tb[1]{\Tbb\left({#1}\right)}
+
+\newcommand \lpesB{\psi^{B}}
+
+\newcommand \therB{\ther^{B}}
+
+
+
+\newcommand \den{\dot{F}}
+
+\newcommand {\F}{\cF}
+
+
+\renewcommand \Upsilon{F}
+
+\DeclareSymbolFont{yhlargesymbols}{OMX}{yhex}{m}{n}
+\DeclareMathAccent{\wideparen}{\mathord}{yhlargesymbols}{"F3}
+
+\usepackage{threeparttable}
+
+\newcommand\cLp {\cL_+^2}
+\newcommand\cLab{\mathcal{L}_{a,b}}
+\newcommand\cLabt{\mathcal{L}_{a,b}}
+
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Prob}{\mathbb{P}}
+\newcommand{\Binom}[2]{\binom{#1}{#2}}
+\newcommand{\Hn}{H_n}
+
+
+\begin{document}
+
+\title{Classical problems}
+
+
+
+
+\date{\today}
+
+\maketitle
+\tableofcontents
+\part{Problems}
+\section{Stars and Bars (integer compositions)}
+\paragraph{Link:} \url{https://en.wikipedia.org/wiki/Stars_and_bars_(combinatorics)}
+
+\subsection{Use/When}
+It can be used to solve a variety of \textbf{counting problems}, such as \textbf{how many ways there are to put $n$ indistinguishable balls into $k$ distinguishable bins}.
+\begin{equation}
+x_1+\cdots+x_n=k
+\end{equation}
+equals to
+\begin{itemize}
+\item Positive ($x_i > 0$): $\displaystyle \binom{k-1}{n-1}$.
+\item Nonnegative ($x_i \ge 0$): $\displaystyle \binom{k+n-1}{n-1}$.
+\item With bounds $x_i \le b$: use inclusion--exclusion on events $x_i \ge b+1$:
+\[
+\sum_{j=0}^{\lfloor k/(b+1)\rfloor}(-1)^j \binom{n}{j}\binom{k-j(b+1)+n-1}{n-1}.
+\]
+\end{itemize}
+\subsection{Sketch of proof} 
+Count the ways to arrange $n$ stars and $k$ bars together. The constraint $x_i>0$ is equivalent to there is no bars adjcent and can be put at two nodes
+Arrange \(k\) stars; place \(n-1\) bars to split into \(n\) piles. Choosing bar positions bijects to solutions.\\
+\textbf{Example.} \[x_1+x_2+x_3=7, x_i\ge 0 \Rightarrow \Binom{9}{2}=36.\]
+
+
+
+\section{Pigeonhole Principle}
+\paragraph{Link:} \url{https://en.wikipedia.org/wiki/Pigeonhole_principle}
+
+\subsection{Use/When.} In mathematics, the pigeonhole principle states that if $n$ items are put into $m$ containers, with $n > m$, then at least one container must contain more than one item
+
+
+\textbf{Statement.} \(N\) objects in \(n\) boxes \(\Rightarrow\) some box has \(\ge \lceil N/n\rceil\) objects.\\
+\textbf{Example.} 13 integers \(\Rightarrow\) two share a remainder mod \(12\).
+
+\section{Catalan Numbers}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\subsection{Definition} The Catalan numbers are a sequence of natural numbers that occur in various counting problems, often involving recursively defined objects. These numbers are defined by
+$C_n=\dfrac{1}{n+1}\Binom{2n}{n} = \frac{2n!}{n!(n+1)!}.$
+As the consequence from the definition, 
+$$C_{n+1}=\sum_{i=0}^n C_iC_{n-i}, \qq \mbox{asymptotic} \qq C_n\sim \dfrac{4^n}{n^{3/2}\sqrt{\pi}}.$$
+
+\subsection{Examples} 
+\paragraph{Dyck paths} A Dyck path is a staircase walk from $(0,0)$ to $(n,n)$ that lies strictly below (but may touch) the diagonal $y=x$. In the other words, we want to move from $(0,0)$ to $(n,n)$ under the condition that each step we can move 1 step in either $x$ or $y$ direction but the value of $x$-coordinate must be always less or equal to  the value of $y$-coordinate. \textbf{The number of Dyck paths of order $n$ is $C_n$ counts the number of expressions containing n pairs of parentheses which are correctly matched:}
+
+\paragraph{Balanced parentheses} $C_n$ counts the number of expressions containing $n$ pairs of parentheses which are correctly matched:
+$$ n = 2: ()(),(()); \quad n=3: ()()(),(())(),()(()),((())), (()()).$$
+
+\paragraph{Binary tree shapes}  $C_n$ is the number of full binary trees with $n + 1$ leaves, or, equivalently, with a total of $n$ internal nodes, e.g.\ for $n=3$
+
+\paragraph{Non three-term patterns} $C_n$ is the number of permutations of ${1, ..., n}$ that avoid the permutation pattern 123 (or, alternatively, \textbf{any of the other patterns of length $3$}); e.g., the number of permutations with no three-term increasing subsequence. For $n = 4$, permutations with no three term increasing subsequence are
+$$ 1432, 2143, 2413, 2431, 3142, 3214, 3241, 3412, 3421, 4132, 4213, 4231, 4312, 4321.$$
+
+\section{Bertrand’s Ballot Problem}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Bertrand%27s_ballot_theorem}
+
+\subsection{Use/When.} In an election, candidate $A$ receives $a$ votes and candidate $B$ receives $b$ votes with $a>b$. \textbf{When} votes are counted in a randomly picked order, the probability that $A$ will (strictly) ahead of $B$ is
+\begin{itemize}
+    \item Strictly ahead: $\displaystyle \dfrac{a-b}{a+b}$
+    \item Ahead (ties allowed): $\displaystyle \dfrac{a-b+1}{a+1}$
+\end{itemize}
+
+\subsection{Sketch of proof (by reflection)} 
+Any sequence that begins with a vote for $B$ must reach a tie at some point, because $A$ eventually wins overall. 
+The probability that a sequence begins with $B$ is
+\beql{eq:ballot-prob}
+\Prob(\text{sequence begins with $B$}) = \frac{b}{a+b}.
+\eeql that begins with $A$ and reaches a tie, reflect the votes up to the point of the first tie (so any $A$ becomes a $B$, and vice versa) to obtain a sequence that begins with $B$. Hence, \textbf{every sequence that begins with $A$ and reaches a tie is in one-to-one correspondence with a sequence that begins with $B$}
+\[
+\Prob(\text{sequence ties and start with $A$}) = \Prob(\text{sequence begins with $B$}).
+\]
+
+Therefore, the probability that A always leads the vote is
+\[
+\begin{aligned}
+\mathbb{P}(\text{$A$ always leads})
+&= 1 - \mathbb{P}(\text{sequence ties at some point}) \\
+&= 1 - \mathbb{P}(\text{sequence ties and begins with A or B}) \\
+&= 1 - 2 \, \mathbb{P}(\text{sequence ties and begins with B}) \\
+&= 1 - 2 \, \mathbb{P}(\text{sequence begins with B}) \\
+&= 1 - 2 \cdot \frac{b}{a+b} \\
+&= \frac{a-b}{a+b}.
+\end{aligned}
+\]
+\subsection{Equivalent problems}
+\paragraph{Lattice Path Formulation}
+Consider lattice paths from $(0,0)$ to $(p,q)$ using steps:
+\[
+(1,0) \quad \text{(vote for $A$)}, 
+\qquad (0,1) \quad \text{(vote for $B$)}.
+\]
+Then the ballot condition is equivalent to requiring that the path satisfies
+\[
+y < x \quad \text{at all intermediate points.}
+\]
+
+\paragraph{Random Walk Formulation}
+Let $X_1,\dots,X_{a+b} \in \{+1,-1\}$ with exactly $a$ values equal to $+1$ and $b$ equal to $-1$.  
+Define the partial sums
+\[
+S_n = \sum_{i=1}^n X_i.
+\]
+Then the event that $A$ is always ahead is equivalent to
+\[
+S_n > 0 \quad \text{for all } n = 1,\dots,a+b.
+\]
+
+\paragraph{Queuing Interpretation}
+Suppose a queue evolves in discrete time:
+\begin{itemize}
+\item arrival: $+1$ customer (vote for $A$),
+\item service: $-1$ customer (vote for $B$),
+\end{itemize}
+with total arrivals $a$ and services $b$.
+Then the theorem gives \textbf{the probability that the queue length never becomes zero again after time $1$}.
+
+\paragraph{Gambler's Ruin Interpretation}
+Let a gambler start with capital $1$.  
+\begin{itemize}
+    \item $a$ times win $+1$
+    \item $b$ times lose $-1$
+\end{itemize}
+
+Conditioned on ending with capital $a-b > 0$, the theorem gives \textbf{the probability that the gambler never goes bankrupt}.
+
+\paragraph{Order Statistics Interpretation}
+Place $p$ points of type $A$ and $q$ points of type $B$ uniformly on $[0,1]$.  
+Order them increasingly.  
+The ballot condition is equivalent to:
+\[
+\text{the $k$-th $A$ occurs before the $k$-th $B$ for all } k.
+\]
+
+\section{Balls-into-Bins (Occupancy)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Balls_into_bins_problem}
+
+\subsection{Use/When.} 
+Throw \(m\) balls  into \(n\) bins uniformly/independently.The expected number of bins with at least one ball inside is
+\beql{}
+\E[\#\text{nonempty}]=n\left[1-\left(1-\frac1 n\right)^m\right].
+\eeql
+\paragraph{Proof.} For each bin, the probability that one ball does not go into this bin is $\frac{n-1}{n}$. So the probability that all $m$ balls are not in this bin is     $\left(\frac{n-1}{n}\right) ^ m$. Thus, we deduce the expectation of one bin that is not empty and multiply this with $n$ to get the target expectation.
+
+In addition, the expected number of empty bins is 
+\beql{}
+\E[\#\text{nonempty}]=n\left(1-\frac1 n\right)^m \underset{n \; large}{\approx} ne^{-m/n}.
+\eeql 
+So for large \(n\), empty bin counts \(\approx \mathrm{Poisson}(\lambda=m/n)\).
+\paragraph{Example.} Elevator: 12 riders, 10 floors \(\Rightarrow 10(1-(9/10)^{12})\approx 7.176\) stops.
+
+\section{Birthday Paradox}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Birthday_problem}
+
+\subsection{Use/When.} Collision among \(k\) samples from \(n\) equally likely types.
+\beql{}\Prob(\text{no collision})=\frac{(n)_k}{n^k}=\prod_{i=0}^{k-1}\Big(1-\frac{i}{n}\Big)
+\eeql
+So
+\beql{}
+\Prob(\text{collision}) = 1-\prod_{i=0}^{k-1}\Big(1-\frac{i}{n}\Big).
+\eeql
+For $n\gg i$, $1-\frac{i}{n} \approx e^{i}$. Hence, for $n \gg k$
+\beql{}
+\Prob(\text{collision}) = 1-\prod_{i=0}^{k-1}e^i = 1 - e^{\sum_{i = 0}^{k-1} i} = 1-e^{\frac{k(k-1)}{2n}}.
+\eeql
+
+\textbf{Approx.} \(\Prob(\text{collision})\approx 1-\exp\!\big(-\tfrac{k(k-1)}{2n}\big)\). Threshold \(k\approx \sqrt{2n\ln 2}\).\\
+\textbf{Example.} \(n=365,k=23\Rightarrow\) collision \(\approx 0.507\).
+
+\section{Coupon Collector}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Coupon_collector%27s_problem}
+
+\subsection{Use/When.} Time to see all \(n\) types at least once.\\
+\textbf{Mean.} \(\E[T]=nH_n\), \(H_n=\sum_{i=1}^n 1/i\). (Stages: \(n/(n-i)\), sum over \(i=0..n-1\).)\\
+\textbf{Asymptotic.} \(T=n\log n + \gamma n + o(n)\) with Gumbel fluctuations.\\
+\textbf{Example.} \(n=6\) faces \(\Rightarrow \E[T]\approx 14.7\).
+
+\section{Derangements (Hat-Check)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Permutations with no fixed point.\\
+\textbf{Count.} \(!n=n!\sum_{k=0}^n (-1)^k/k!\); hence \(\Prob(\text{no fixed point})\to 1/e\). Also \(\E[\#\text{fixed points}]=1\).\\
+\textbf{Sketch.} PIE on events \(A_i=\{\pi(i)=i\}\).\\
+\textbf{Example.} \(!5=44\), prob \(44/120\approx 0.3667\).
+
+\section{Hypergeometric (without replacement)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Population \(N\) with \(K\) successes; draw \(n\); \(X\) successes.\\
+\textbf{PMF.} \(\Prob(X=x)=\dfrac{\Binom{K}{x}\Binom{N-K}{n-x}}{\Binom{N}{n}}\). Mean \(nK/N\); variance \(n(K/N)(1-K/N)\frac{N-n}{N-1}\).\\
+\textbf{Example.} 5 cards, exactly 2 aces: \(\Binom{4}{2}\Binom{48}{3}/\Binom{52}{5}\).
+
+\section{Negative Hypergeometric (draw until \(r\) successes)}
+
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Without replacement, draw until \(r\)-th success among \(K\) in \(N\).\\
+\textbf{Mean draws.} \(\E[T]=\dfrac{r(N+1)}{K+1}\). (Order-statistic symmetry of success positions.)\\
+\textbf{Example.} Draws to first ace: \((52+1)/(4+1)=10.6\).
+
+\section{Geometric \& Negative Binomial (with replacement)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Trials with success probability \(p\).\\
+\textbf{Facts.} Geometric: \(\Prob(T=k)=(1-p)^{k-1}p\), \(\E[T]=1/p\), memoryless. Negative binomial: time to \(r\) successes, \(\E[T]=r/p\), \(\Var[T]=r(1-p)/p^2\).\\
+\textbf{Example.} \(p=0.3\Rightarrow \E[T_{\text{first}}]\approx 3.\overline{3}\); to 5 successes \(\approx 16.67\).
+
+\section{Runs of Heads/Tails (longest run)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Typical/maximum consecutive run in \(n\) flips.\\
+\textbf{Heuristic.} \(\Prob(\text{a run of }\ge r)\le n\cdot 2^{-r}\) (union bound) \(\Rightarrow\) longest run \(\approx \log_2 n\).\\
+\textbf{Example.} \(n=100\Rightarrow\) longest run around \(6\)–\(7\).
+
+\section{Penney’s Game (pattern vs. counter-pattern)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Which length-\(m\) pattern appears first in i.i.d. fair flips; nontransitive strategies.\\
+\textbf{Facts.} Expected waiting depends on overlaps; average \(2^m\). For \(m=3\), best reply to \(abc\) is \(\overline{b}ab\), win prob \(2/3\).\\
+\textbf{Example.} Opponent HHT \(\Rightarrow\) best THH.
+
+:pmm\section{Gambler’s Ruin (1D random walk)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Hitting prob/time on \(\{0,1,\dots,N\}\); step \(+1\) with prob \(p\), \(-1\) with \(q\).\\
+\textbf{Results.} \(\Prob(\text{hit }N\mid i)=\frac{1-(q/p)^i}{1-(q/p)^N}\) for \(p\neq q\); fair case \(=i/N\). Fair expected time \(=i(N-i)\).\\
+\textbf{Sketch.} Solve second-order difference equations or use martingales/optional stopping.
+
+\section{Reflection Principle (lattice/Brownian paths)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Events like “ever cross a level”; links ballot \& Catalan; maxima of walks.\\
+\textbf{Sketch.} Reflect the path at first crossing to biject violating paths to an easy-count set.\\
+\textbf{Example.} For a symmetric walk \(S_k\), classic identities for \(\Prob(\max_{k\le n} S_k\ge a)\).
+
+\section{Absorbing Markov Chains}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Expected time to absorption; absorption probabilities in finite chains.\\
+\textbf{Setup.} Reorder \(P=\begin{pmatrix}Q&R\\0&I\end{pmatrix}\). Fundamental matrix \(N=(I-Q)^{-1}=\sum_{k\ge 0}Q^k\).\\
+\textbf{Results.} Expected steps \(t=N\mathbf{1}\). Absorption matrix \(B=NR\).\\
+\textbf{Example.} “Collect-all” problems can be cast with small \(Q\) blocks.
+
+\section{Records (running maxima)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} How many new highs in i.i.d. continuous samples.\\
+\textbf{Facts.} \(\Prob(i\text{ is a record})=1/i\); \(\E[\#\text{records}]=H_n\) by indicators \& symmetry.\\
+\textbf{Example.} \(n=100\Rightarrow \E\approx 5.187\).
+
+\section{Fixed Points in a Random Permutation}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Matches \(\pi(i)=i\).\\
+\textbf{Facts.} \(\E[\#\text{fixed points}]=1\); \(\Prob(\text{none})\to 1/e\). Derangements via PIE.\\
+\textbf{Sketch.} Indicator method: \(\E[\sum I_i]=\sum \E[I_i]=1\).
+
+\section{First-Appearance Order Symmetry}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Order in which distinct types first appear in i.i.d. sampling.\\
+\textbf{Fact.} The order is a uniform random permutation. Blocks \(A\) before \(B\) with prob \(1/\Binom{|A|+|B|}{|A|}\).\\
+\textbf{Example.} Die: “all evens before any odd” \(=1/\Binom{6}{3}=1/20\).
+
+\section{Buffon’s Needle (geometric probability)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Needle of length \(\ell\) dropped on parallel lines distance \(d\) apart (\(\ell\le d\)).\\
+\textbf{Result.} \(\Prob(\text{cross})=\dfrac{2\ell}{\pi d}\).\\
+\textbf{Sketch.} Integrate over angle \(\theta\) and center offset \(u\): cross if \(u\le (\ell/2)\sin\theta\).
+
+\section{Bertrand’s Paradox (random chord)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Demonstrates model dependence in “uniform chord” selection.\\
+\textbf{Fact.} “Chord longer than triangle side” is \(1/3,1/2,\) or \(1/4\) depending on sampling scheme (endpoints / angle-distance / uniform midpoint).\\
+\textbf{Moral.} Always specify the randomness model.
+
+\section{Broken-Stick Problem}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Catalan_number}
+
+\textbf{Use/When.} Two uniform cuts on \([0,1]\); lengths \(X,Y,Z\) with \(X+Y+Z=1\).\\
+\textbf{Triangle probability.} \( \Prob(\text{triangle})=1/4\) (all three \(<1/2\) in the simplex).\\
+\textbf{Extras.} \(\E[\max]=11/18,\ \E[\text{mid}]=5/18,\ \E[\min]=1/9\).
+
+\vspace{6pt}
+\hrule
+\vspace{4pt}
+\noindent\textbf{Further Reading (reliable):}
+\begin{itemize}
+  \item \textit{Wikipedia:} Stars and Bars; Inclusion–Exclusion; Pigeonhole; Catalan Numbers; Bertrand’s Ballot; Hook-length Formula; Occupancy Problem; Birthday Problem; Coupon Collector; Derangements; Hypergeometric/Negative Hypergeometric; Geometric/Negative Binomial; Penney’s Game; Gambler’s Ruin; Reflection Principle; Absorbing Markov Chain; Records; Buffon’s Needle; Bertrand’s Paradox; Broken-stick problem.
+  \item Grimaldi, \emph{Discrete and Combinatorial Mathematics}. Feller, \emph{An Introduction to Probability Theory}.
+\end{itemize}
+
+\part{Useful tools}
+\section{Inclusion–Exclusion Principle (PIE)}
+\paragraph{Link} \url{https://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle}
+\subsection{Use/When.} The inclusion–exclusion principle is a counting technique which generalizes the familiar method of obtaining the \textbf{number of elements in the union of two finite sets}; symbolically expressed as
+
+\[
+|A\cup B| = |A|+|B|-|A\cap B|.
+\]
+In its general formula, the principle of inclusion–exclusion states that for finite sets $A_1, \dots, A_n$, one has the identity
+\beql{}
+\left|\bigcup_{i=1}^n A_i\right|=\sum_{i=1}^n|A_i|-\sum_{1\leq i< j \leq  n}^n\left|A_i\cap A_j\right|+(-1)^{n}\sum_{1 \leq i_1 < \dots  < i_{n-1} \leq n}\left|\bigcap_{j=i_{1}}^{i_{n-1}} A_j\right| + (-1)^{n+1}\left|\bigcap_{i=1}^n A_i\right|.
+\eeql
+
+\section{Hook-Length Formula (Young tableaux)}
+\textbf{Use/When.} \# of standard Young tableaux of shape \(\lambda\vdash n\).\\
+\textbf{Statement.} \(f^\lambda=\dfrac{n!}{\prod_{c\in \lambda} h(c)}\), where \(h(c)\) is the hook length of cell \(c\).\\
+\textbf{Sketch.} Greene–Nijenhuis–Wilf hook walk: product of hook reciprocals equals a valid fill probability.\\
+\textbf{Example.} Shape \((3,2)\): hook lengths \(4,3,1;2,1\) \(\Rightarrow\) \(f=5!/24=5\).
+\end{document}

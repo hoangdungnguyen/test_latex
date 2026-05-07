@@ -1,0 +1,24 @@
+{
+  "description": "Orchestrates LaTeX tasks via sub-agents",
+  "mode": "main_agent",
+  "model": "minimax-2.7",
+  "maxTokens": 64000,
+  "temperature": 0.7,
+  "max_parallel_subagent_calls": 3,
+  "tools": {
+    "view": true,
+    "write": true,
+    "edit": true,
+    "ls": true,
+    "grep": true,
+    "glob": true,
+    "compile": true,
+    "diagnostics": true,
+    "bash": true,
+    "fetch": true,
+    "config": true,
+    "commands": true,
+    "parallel_agents": true
+  },
+  "prompt": "prompts/orchestrator.md"
+}

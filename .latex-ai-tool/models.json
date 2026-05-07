@@ -1,0 +1,132 @@
+{
+  "glm-4.5-air": {
+    "provider": "zai",
+    "name": "glm-4.5-air",
+    "maxTokens": 8192,
+    "_showInPanel": true
+  },
+  "glm-4.7": {
+    "provider": "zai",
+    "name": "glm-4.7",
+    "_showInPanel": false
+  },
+  "qwen3-coder": {
+    "provider": "openrouter",
+    "name": "qwen/qwen3-coder:free",
+    "temperature": 0.5,
+    "_showInPanel": false
+  },
+  "gemma-3-27b": {
+    "provider": "openrouter",
+    "name": "google/gemma-3-27b-it:free",
+    "_showInPanel": false
+  },
+  "gpt-4": {
+    "provider": "openai",
+    "name": "gpt-4",
+    "_showInPanel": false
+  },
+  "gpt-4-turbo": {
+    "provider": "openai",
+    "name": "gpt-4-turbo",
+    "_showInPanel": false
+  },
+  "gpt-3.5-turbo": {
+    "provider": "openai",
+    "name": "gpt-3.5-turbo",
+    "_showInPanel": false
+  },
+  "claude-3-opus": {
+    "provider": "anthropic",
+    "name": "claude-3-opus-20240229",
+    "_showInPanel": false
+  },
+  "claude-3-sonnet": {
+    "provider": "anthropic",
+    "name": "claude-3-sonnet-20240229",
+    "_showInPanel": false
+  },
+  "llama3": {
+    "provider": "ollama",
+    "name": "llama3",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "mistral": {
+    "provider": "ollama",
+    "name": "mistral",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "qwen2.5-coder-1.5b": {
+    "provider": "ollama",
+    "name": "qwen2.5-coder:1.5b",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "gemma-3-1b": {
+    "provider": "llama",
+    "name": "ggml-org/gemma-3-1b-it-GGUF",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "gemma-4-e2b": {
+    "provider": "llama",
+    "name": "unsloth/gemma-4-E2B-it-GGUF:Q4_0",
+    "_local": false,
+    "_showInPanel": true
+  },
+  "lfm2-8b-a1b": {
+    "provider": "llama",
+    "name": "LiquidAI/LFM2-8B-A1B-GGUF:Q4_0",
+    "_local": false,
+    "_showInPanel": true
+  },
+  "bonsai-8b-gguf": {
+    "provider": "llama2",
+    "name": "prism-ml/Bonsai-8B-gguf",
+    "_local": false,
+    "_showInPanel": true
+  },
+  "bonsai-4b-gguf": {
+    "provider": "llama2",
+    "name": "prism-ml/Bonsai-4B-gguf",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "bonsai-1.7b-gguf": {
+    "provider": "llama2",
+    "name": "prism-ml/Bonsai-1.7B-gguf",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "mlx-local": {
+    "provider": "mlx",
+    "name": "local",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "lmstudio-local": {
+    "provider": "lmstudio",
+    "name": "local",
+    "_local": false,
+    "_showInPanel": false
+  },
+  "liquid-lfm2.5-1.2b": {
+    "provider": "lmstudio",
+    "name": "liquid/lfm2.5-1.2b",
+    "_local": false,
+    "_showInPanel": true
+  },
+  "minimax-2.7": {
+    "provider": "minimax",
+    "name": "MiniMax-M2.7",
+    "maxTokens": 64000,
+    "_showInPanel": true
+  },
+  "nvidia-nemotron-3-nano-4b": {
+    "provider": "lmstudio",
+    "name": "nvidia/nemotron-3-nano-4b",
+    "_showInPanel": false
+  }
+}

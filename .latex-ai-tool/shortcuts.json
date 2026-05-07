@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "shortcuts": [
+    {
+      "id": "bold",
+      "key": "cmd+b",
+      "mac": "cmd+b",
+      "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/",
+      "command": "latex-ai-tool.shortcut.textbf",
+      "description": "Toggle bold (\\textbf{})"
+    },
+    {
+      "id": "italic",
+      "key": "cmd+i",
+      "mac": "cmd+i",
+      "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/",
+      "command": "latex-ai-tool.shortcut.textit",
+      "description": "Toggle italic (\\textit{})"
+    },
+    {
+      "id": "build-and-view",
+      "key": "cmd+enter",
+      "mac": "cmd+enter",
+      "when": "editorTextFocus && editorLangId =~ /^latex$|^latex-expl3$|^doctex$/ && !virtualWorkspace",
+      "command": "latex-ai-tool.buildAndView",
+      "description": "Build and preview PDF"
+    }
+  ]
+}
